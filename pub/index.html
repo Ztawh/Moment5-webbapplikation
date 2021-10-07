@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurser</title>
+    <link rel="stylesheet" href="scss/main.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Lista över kurser jag läst</h1>
+    </header>
+
+    <main>
+        <div>
+            <h2>Lista kurser här:</h2>
+            <div id="courses"></div>
+        </div>
+
+        <div>
+            <h3>Lägg till kurs</h3>
+
+            <div >
+                <form id="add-form">
+                    <label for="code">Kurskod</label>
+                    <input type="text" name="code" id="code">
+
+                    <label for="name">Kursnamn</label>
+                    <input type="text" name="name" id="name">
+
+                    <label for="prog">Progression</label>
+                    <input type="text" name="prog" id="prog">
+
+                    <label for="syllabus">Kursplan</label>
+                    <input type="text" name="syllabus" id="syllabus">
+
+                    <input type="submit" value="Lägg till" id="add-course">
+                </form>
+            </div>
+
+            <div id="edit-form"></div>
+
+
+        </div>
+    </main>
+
+    <script src="js/js/main.js"></script>
+</body>
+
+</html>
