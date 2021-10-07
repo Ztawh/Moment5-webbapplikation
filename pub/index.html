@@ -15,15 +15,25 @@
     </header>
 
     <main>
-        <div>
-            <h2>Lista kurser här:</h2>
+        <div id="table-container">
+            <h2>kurser</h2>
+            <div id="titles" class="flex-container">
+                <div class="title">Kurskod</div>
+                <div class="title">Kursnamn</div>
+                <div class="title">Progression</div>
+                <div class="title">Kursplan</div>
+                <div class="title">Ändra</div>
+            </div>
             <div id="courses"></div>
         </div>
 
-        <div>
-            <h3>Lägg till kurs</h3>
+        <div id="add-form-container">
+            
+            <div id="edit-form"></div>
 
+            
             <div >
+                <h3>Lägg till kurs</h3>
                 <form id="add-form">
                     <label for="code">Kurskod</label>
                     <input type="text" name="code" id="code">
@@ -34,20 +44,22 @@
                     <label for="prog">Progression</label>
                     <input type="text" name="prog" id="prog">
 
-                    <label for="syllabus">Kursplan</label>
+                    <label for="syllabus">Kursplan(länk)</label>
                     <input type="text" name="syllabus" id="syllabus">
 
                     <input type="submit" value="Lägg till" id="add-course">
                 </form>
             </div>
 
-            <div id="edit-form"></div>
+            
 
 
         </div>
     </main>
 
+    <script src="https://kit.fontawesome.com/be0f6fe16e.js" crossorigin="anonymous"></script>
     <script src="js/js/main.js"></script>
+    
 </body>
 
 </html>

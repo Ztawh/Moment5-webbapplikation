@@ -1,13 +1,9 @@
-// Nollställer styling i webbläsaren
-@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+@import "base";
+@import "layout";
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
-    background-color: burlywood;
 }
 

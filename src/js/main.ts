@@ -26,13 +26,13 @@ function getCourses() {
         .then(data => {
             data.forEach(course => {
                 coursesEl.innerHTML +=
-                    `<div class="course">
-                <p><b>Kurskod: </b> ${course.course_id} </p>
-                <p><b>Kursnamn: </b> ${course.name} </p>
-                <p><b>Progression: </b> ${course.progression} </p>
-                <p><b>Kurskod: </b> ${course.course_syllabus} </p>
-                <button id="${course.id}" onClick="deleteCourse(${course.id})">Ta bort</button>
-                <button class="edit" onClick="editCourse('${course.id}', '${course.course_id}', '${course.name}', '${course.progression}', '${course.course_syllabus}')">Redigera</button>
+                    `<div class="course flex-container">
+                <div class="courseEl">${course.course_id} </div>
+                <div class="courseEl">${course.name} </div>
+                <div class="courseEl">${course.progression} </div>
+                <div class="courseEl"><a href="${course.course_syllabus}" target="_blank">Länk</a></div>
+                <button class="delete-button" id="${course.id}" onClick="deleteCourse(${course.id})">Ta bort <i class="fas fa-trash-alt"></i></button>
+                <button class="edit-button" onClick="editCourse('${course.id}', '${course.course_id}', '${course.name}', '${course.progression}', '${course.course_syllabus}')">Redigera <i class="far fa-edit"></i></button>
             </div>`;
             })
         });
@@ -81,6 +81,7 @@ function editCourse(id: number, courseId: string, courseName: string, courseProg
     editForm.innerHTML =
         `
         <form>
+            <h3>Redigera kurs</h3>
             <label for="code-edit">Kurskod</label>
             <input type="text" name="code-edit" id="code-edit" value="${courseId}">
 
@@ -90,14 +91,15 @@ function editCourse(id: number, courseId: string, courseName: string, courseProg
             <label for="prog-edit">Progression</label>
             <input type="text" name="prog-edit" id="prog-edit" value="${courseProg}">
 
-            <label for="syllabus-edit">Kursplan</label>
+            <label for="syllabus-edit">Kursplan(länk)</label>
             <input type="text" name="syllabus-edit" id="syllabus-edit" value="${courseSyllabus}">
 
+            <div class="flex-container">
+                <button id="abort" onClick="abortEdit()">Avbryt</button>
+                <button id="save">Spara</button>
+            </div>
             
-            <button id="save">Spara</button>
         </form>
-
-        <button onClick="abortEdit()">Avbryt</button>
         `;
 
     let save = document.getElementById("save");
