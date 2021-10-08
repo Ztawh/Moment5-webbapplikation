@@ -1,15 +1,16 @@
 // Nollställer styling i webbläsaren
 @import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
 
-$gradient: linear-gradient(-45deg, rgb(211, 49, 0), rgb(202, 112, 29),  rgb(26, 9, 121));
+$gradient: linear-gradient(-45deg, rgb(211, 49, 0), rgb(202, 112, 29),  rgb(9, 35, 121));
 //$background-body: rgb(255, 252, 247);
 $background-body: rgb(42, 64, 112);
 $darker-background: darken($background-body, 10);
 $delete-color: darken(rgb(211, 49, 0), 5);
-$delete-hover: darken(rgb(211, 49, 0), 10);
-$edit-color: lighten(rgb(26, 9, 121), 60);
-$button-hover: rgb(202, 112, 29);
-$button-color: lighten(rgb(202, 112, 29), 20);
+$delete-hover: lighten(rgb(211, 49, 0), 15);
+$edit-color: lighten(rgb(9, 35, 121), 60);
+$edit-hover: lighten(rgb(9, 35, 121), 80);
+$button-hover: rgb(46, 126, 66);
+$button-color: lighten(rgb(42, 64, 112), 30);
 
 
 // Mixins

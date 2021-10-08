@@ -18,6 +18,7 @@ a {
     }
 }
 
+// Rubriker
 h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -30,8 +31,20 @@ h2 {
     padding: 1rem;
 }
 
+// h3 {
+//     background: ;
+// }
+
 .flex-container {
     display: flex;
+    
+}
+
+// Tabell
+
+#courses {
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 #table-container {
@@ -46,25 +59,30 @@ h2 {
 .title {
     font-size: 1.1rem;
     font-weight: bold;
-    padding: 0.8rem;
+    // padding: 0.8rem;
 }
 
 .course:nth-of-type(odd){
     background: $darker-background;
 }
 
-.course {
+.course, #titles {
     padding: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 0.8fr 1fr 0.5fr 0.5fr;
+    grid-template-rows: 1fr;
 
     button {
         width: 80px;
         height: 40px;
         background-color: transparent;
         border: none;   
+        color: $edit-color;
+        font-size: 1.2rem;
     }
 
     .delete-button {
-        margin-right: 0.5rem;
+        color: $delete-color;
     }
 
     @include desktop {
@@ -73,11 +91,11 @@ h2 {
         }
 
         .edit-button:hover {
-            color: $edit-color;
+            color: $edit-hover;
         }
 
         .delete-button:hover {
-            color: $delete-color;
+            color: $delete-hover;
         }
     }
 }
@@ -131,5 +149,12 @@ h2 {
             background: $delete-hover;
         }
     }
+}
+
+// Footer
+
+footer {
+    padding: 5rem 1rem;
+    text-align: center;
 }
 
