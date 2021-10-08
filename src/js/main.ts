@@ -22,7 +22,7 @@ function getCourses() {
     coursesEl.innerHTML = "";
 
     // Hämtar data från webbtjänsten och skriver ut i element
-    fetch("http://localhost:8080/webbtjanst/rest")
+    fetch("https://studenter.miun.se/~amhv2000/writeable/webbtjanst/rest.php")
         .then(response => response.json())
         .then(data => {
             data.forEach(course => {
@@ -45,7 +45,7 @@ function deleteCourse(id: number) {
     // Begär bekräftelse
     if(confirm("Är du säker på att du vill ta bort den här kursen?")) {
         // Skickar id till webbtjänsten som tar bort kursen, samt skriver ut kurserna på nytt
-        fetch("http://localhost:8080/webbtjanst/rest?id=" + id, {
+        fetch("https://studenter.miun.se/~amhv2000/writeable/webbtjanst/rest.php?id=" + id, {
             method: "DELETE",
         })
             .then(response => response.json())
@@ -77,7 +77,7 @@ function addCourse() {
     let course = { "course_id": code, "name": name, "progression": prog, "course_syllabus": syllabus };
 
     // Gör objektet till json och skickar till webbtjänsten som lägger till kursen. Samt skriv ut kurserna på nytt
-    fetch("http://localhost:8080/webbtjanst/rest", {
+    fetch("https://studenter.miun.se/~amhv2000/writeable/webbtjanst/rest.php", {
         method: "POST",
         body: JSON.stringify(course),
     })
@@ -157,7 +157,7 @@ function updateCourse(id: number) {
     let course = { "course_id": code, "name": name, "progression": prog, "course_syllabus": syllabus };
 
     // Skickar id till webbtjänsten samt nya värden för den kursen, webbtjänsten uppdaterar. Samt skriver ut kurser på nytt
-    fetch("http://localhost:8080/webbtjanst/rest?id=" + id, {
+    fetch("https://studenter.miun.se/~amhv2000/writeable/webbtjanst/rest.php?id=" + id, {
         method: "PUT",
         body: JSON.stringify(course),
     })
