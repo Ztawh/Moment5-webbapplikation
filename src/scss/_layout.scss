@@ -1,6 +1,11 @@
 body {
     background-color: $background-body;
     color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    padding: 1rem;
 }
 
 header {
@@ -21,19 +26,22 @@ a {
 // Rubriker
 h1 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-family: 'Gemunu Libre', sans-serif;
 }
 
 h2 {
     background: $gradient;
     color: white;
-    // text-align: center;
     padding: 1rem;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 2rem;
 }
 
-// h3 {
-//     background: ;
-// }
+h3 {
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 1.5rem;
+}
 
 .flex-container {
     display: flex;
@@ -41,11 +49,6 @@ h2 {
 }
 
 // Tabell
-
-#courses {
-    // display: grid;
-    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
 
 #table-container {
     max-width: 900px;
@@ -57,21 +60,23 @@ h2 {
 }
 
 .title {
-    font-size: 1.1rem;
     font-weight: bold;
-    // padding: 0.8rem;
 }
 
+// Gör varannan rad mörk
 .course:nth-of-type(odd){
     background: $darker-background;
 }
 
+// Sätter grid
 .course, #titles {
     padding: 0.8rem;
     display: grid;
-    grid-template-columns: 1fr 1.5fr 0.8fr 1fr 0.5fr 0.5fr;
+    grid-template-columns: 1fr 1.2fr 0.8fr 1fr 1fr;
     grid-template-rows: 1fr;
+    gap: 10px;
 
+    // Alla knappar i en kurs
     button {
         width: 80px;
         height: 40px;
@@ -79,12 +84,15 @@ h2 {
         border: none;   
         color: $edit-color;
         font-size: 1.2rem;
+        width: 50px;
+        transition: 0.2s;
     }
 
     .delete-button {
         color: $delete-color;
     }
 
+    // Hover
     @include desktop {
         button:hover {
             cursor: pointer;
@@ -100,11 +108,25 @@ h2 {
     }
 }
 
+// Nytt grid för mindre enheter
+.course {
+    @include mobile {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+
+    @include small-mobile {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+    }
+}
+
 // Lägg till - formulär
 #add-form-container {
     max-width: 400px;
     margin: 3rem auto;
-
 
     label {
         display: block;
@@ -127,18 +149,21 @@ h2 {
         color: white;
         border: none;
         border-radius: 20px;
+        transition: 0.2s;
     }
 
     button {
         width: 100%;
         margin: 1rem 0.25rem 3rem 0.25rem;
         padding: 0.5rem;
+        transition: 0.2s;
     }
 
     #abort {
         background: $delete-color;
     }
 
+    // Hover
     @include desktop {
         #add-course:hover, button:hover {
             background: $button-hover;
@@ -156,5 +181,18 @@ h2 {
 footer {
     padding: 5rem 1rem;
     text-align: center;
+}
+
+// Gömmer rubriker
+.hide-mobile {
+    @include mobile {
+        display: none;
+    }
+}
+
+.hide-desktop {
+    @include desktop {
+        display: none;
+    }
 }
 

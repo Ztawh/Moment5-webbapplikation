@@ -9,32 +9,34 @@
 </head>
 
 <body>
-
     <header>
-        <h1>Lista över kurser jag läst</h1>
+        <h1>lista över kurser jag läst</h1>
     </header>
 
     <main>
+        <!-- Tabell för kurser -->
         <div id="table-container">
             <h2>kurser</h2>
+            <!-- Rubriker -->
             <div id="titles">
-                <div class="title">Kurskod</div>
-                <div class="title">Kursnamn</div>
-                <div class="title">Progression</div>
-                <div class="title">Kursplan</div>
-                <div class="title">Radera</div>
-                <div class="title">Redigera</div>
+                <div class="title hide-mobile">Kurskod</div>
+                <div class="title hide-mobile">Kursnamn</div>
+                <div class="title hide-mobile">Progression</div>
+                <div class="title hide-mobile">Kursplan</div>
+                <div class="title hide-mobile">Radera/redigera</div>
             </div>
+            <!-- Här skrivs kurser ut -->
             <div id="courses"></div>
         </div>
 
+        <!-- Formulär -->
         <div id="add-form-container">
-            
+            <!-- Här skrivs redigeringsformulär ut -->
             <div id="edit-form"></div>
-
             
+            <!-- Lägg till - formulär -->
             <div >
-                <h3>Lägg till kurs</h3>
+                <h3>lägg till kurs</h3>
                 <form id="add-form">
                     <label for="code">Kurskod</label>
                     <input type="text" name="code" id="code" required>
@@ -51,18 +53,15 @@
                     <input type="submit" value="Lägg till" id="add-course">
                 </form>
             </div>
-
-            
-
-
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>Copyright - Amanda Hwatz Björkholm 2021</footer>
 
+    <!-- Ikoner från fontawesome -->
     <script src="https://kit.fontawesome.com/be0f6fe16e.js" crossorigin="anonymous"></script>
+    <!-- JavaScript -->
     <script src="js/js/main.js"></script>
-    
 </body>
-
 </html>

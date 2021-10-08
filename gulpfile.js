@@ -1,7 +1,6 @@
 // Hämtar paket
 const {src, dest, watch, series, parallel} = require("gulp");
 const terser = require("gulp-terser").default;
-const imagemin = require("gulp-imagemin");
 const browserSync = require("browser-sync").create();
 const sourcemaps = require("gulp-sourcemaps");
 const sass = require('gulp-sass')(require('sass'));
@@ -14,7 +13,6 @@ var tsProject = ts.createProject("tsconfig.json");
 const files = {
     htmlPath: "src/**/*.html",
     jsPath: "src/**/*.js",
-    imgPath: "src/images/*",
     sassPath: "src/**/*.scss",
     tsPath: "src/**/*.ts"
 };
@@ -24,16 +22,7 @@ function copyHTML() {
     return src(files.htmlPath).pipe(dest("pub"));
 };
 
-// //JS-task. Transpilerar, minifierar
-// function jsTask() {
-//     return src(files.jsPath)
-//     .pipe(babel({
-//         presets: ['@babel/env']
-//     }))
-//     .pipe(terser())
-//     .pipe(dest("pub/js"));
-// };
-
+// TS till JS. Samt minimerar och transpilerar
 function jsTask() {
     return src(files.tsPath)
     .pipe(tsProject())
@@ -55,23 +44,16 @@ function sassTask(){
     .pipe(browserSync.stream());
 };
 
-//Image-task. 
-function imgTask(){
-    return src(files.imgPath)
-    .pipe(imagemin())
-    .pipe(dest("pub/images"));
-};
-
 //Watch-task
 function watchTask(){
     browserSync.init({
         server: "./pub"
     });
-    return watch([files.htmlPath, files.tsPath, files.imgPath, files.sassPath], parallel(copyHTML, jsTask, imgTask, sassTask)).on("change", browserSync.reload);
+    return watch([files.htmlPath, files.tsPath, files.sassPath], parallel(copyHTML, jsTask, sassTask)).on("change", browserSync.reload);
 };
 
 // Kör samtliga funktioner vid start av gulp. 
 exports.default = series (
-    parallel(copyHTML, jsTask, imgTask, sassTask),
+    parallel(copyHTML, jsTask, sassTask),
     watchTask
 );

@@ -1,8 +1,10 @@
 // Nollställer styling i webbläsaren
 @import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
 
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&family=Montserrat&display=swap');
+
+// Variabler 
 $gradient: linear-gradient(-45deg, rgb(211, 49, 0), rgb(202, 112, 29),  rgb(9, 35, 121));
-//$background-body: rgb(255, 252, 247);
 $background-body: rgb(42, 64, 112);
 $darker-background: darken($background-body, 10);
 $delete-color: darken(rgb(211, 49, 0), 5);
@@ -16,7 +18,21 @@ $button-color: lighten(rgb(42, 64, 112), 30);
 // Mixins
 // Media. Desktop
 @mixin desktop {
-    @media screen and (min-width: 900px){
+    @media screen and (min-width: 800px){
+        @content;
+    }
+}
+
+// Media. Mobiler
+@mixin mobile {
+    @media screen and (max-width: 800px){
+        @content;
+    }
+}
+
+// Media. Mindre enheter
+@mixin small-mobile {
+    @media screen and (max-width: 450px){
         @content;
     }
 }
