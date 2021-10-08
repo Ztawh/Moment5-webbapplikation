@@ -1,3 +1,4 @@
+// Skrivet av Amanda Hwatz Björkholm 2021
 
 // Variabler
 let coursesEl = document.getElementById("courses");
